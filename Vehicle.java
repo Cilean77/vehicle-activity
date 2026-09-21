@@ -1,0 +1,23 @@
+package designaclass;
+
+public class Vehicle {
+	String brand;
+	String model;
+	int year;
+	
+	public void displayInfo() {
+		System.out.println("Brand: " + brand + " Model: " + model + " Year: " + year);
+	}
+	
+	public int calculateAge() {
+		return 2026 - year;
+	}
+	
+	public boolean isVintage() {
+		if(calculateAge() > 25) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+}
