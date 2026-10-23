@@ -2,60 +2,36 @@
 
 public class Main {
 
+	public static void printDetails(Vehicle vehicle){
+			vehicle.displayInfo();
+		}
+
 	public static void main(String[] args) {
 		
-		Vehicle v1 = new Vehicle("Chevrolet", "Corvette", 1963);
-		Vehicle v2 = new Vehicle("Toyota", "RAV4", 2024);
-		Vehicle v3 = new Vehicle("Honda", "Civic", 2015);
+		//Polymorphism using Parent as Reference, Upcasting 
+		Vehicle vehicle = new Car("Chevrolet", "Corvette", 1963, 4);
+		vehicle.displayInfo();
+
+		System.out.println(" ");
+		//Polymorphism using Methods
+		Car car = new Car("Chevrolet", "Corvette", 1963, 4);
+		Motorcycle motor = new Motorcycle("Honda", " ADV160", 2026, "Basta modagan");
+		Truck truck = new Truck("Isuzu", "FRR90MS", 2026, 6);
+	
+		printDetails(car);
+		printDetails(motor);
+		printDetails(truck);
+
+		System.out.println(" ");
+		//Polymorphism using Arrays
+		Vehicle[] vehicles = {
+			new Car("Chevrolet", "Corvette", 1963, 4),
+			new Motorcycle("Honda", " ADV160", 2026, "Basta modagan"),
+			new Truck("Isuzu", "FRR90MS", 2026, 6)
+		};
 		
-		//object1
-		v1.displayInfo();
-		System.out.println("Brand: " + v1.getBrand());
-		System.out.println("Model: " + v1.getModel());
-		System.out.println("Year: " + v1.getYear());
-		System.out.println("Age: " + v1.calculateAge());
-		System.out.println("Vintage: " + v1.isVintage());
-		
-		//object2
-		v2.displayInfo();
-		System.out.println("Brand: " + v2.getBrand());
-		System.out.println("Model: " + v2.getModel());
-		System.out.println("Year: " + v2.getYear());
-		System.out.println("Age: " + v2.calculateAge());
-		System.out.println("Vintage: " + v2.isVintage());	
-		
-		//object3
-		v3.displayInfo();
-		System.out.println("Brand: " + v3.getBrand());
-		System.out.println("Model: " + v3.getModel());
-		System.out.println("Year: " + v3.getYear());
-		System.out.println("Age: " + v3.calculateAge());
-		System.out.println("Vintage: " + v3.isVintage());	
-
-		//set (test)
-		System.out.println("setYear(2000): " + v1.setYear(2000));
-		System.out.println("Year: " + v1.getYear());
-		System.out.println("Age: " + v1.calculateAge());
-		System.out.println("Is vintage? " + v1.isVintage());
-		System.out.println();
-
-		System.out.println("setYear(1885): " + v1.setYear(1885));
-		System.out.println("Year: " + v1.getYear());
-		System.out.println();
-
-		System.out.println("setYear(2027): " + v1.setYear(2027));
-		System.out.println("Year: " + v1.getYear());
-		System.out.println();
-
-		//test
-		Vehicle v4 = new Vehicle("Chevrolet", "Corvette", 1885); 
-		System.out.println("New vehicle with year 1885"); 
-		System.out.println("Initial year is " + v4.getYear()); 
-		System.out.println(); 
-
-	 	Vehicle v5 = new Vehicle("Toyota", "RAV4", 2027);
-		System.out.println("New vehicle with year 2027");
-		System.out.println("Initial year is " + v5.getYear());
-	}
+		for(Vehicle currentVehicle: vehicles){
+			printDetails(currentVehicle);
+		}
 
 }
