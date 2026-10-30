@@ -4,23 +4,15 @@ public class Main {
 
 	public static void printDetails(Vehicle vehicle){
 			vehicle.displayInfo();
+			vehicle.moveForward();
+			vehicle.moveBackwards();
+			vehicle.moveLeft();
+			vehicle.moveRight();
+
 		}
 
 	public static void main(String[] args) {
 		
-		//Polymorphism using Parent as Reference, Upcasting 
-		Vehicle vehicle = new Car("Chevrolet", "Corvette", 1963, 4);
-		vehicle.displayInfo();
-
-		System.out.println(" ");
-		//Polymorphism using Methods
-		Car car = new Car("Chevrolet", "Corvette", 1963, 4);
-		Motorcycle motor = new Motorcycle("Honda", " ADV160", 2026, "Basta modagan");
-		Truck truck = new Truck("Isuzu", "FRR90MS", 2026, 6);
-	
-		printDetails(car);
-		printDetails(motor);
-		printDetails(truck);
 
 		System.out.println(" ");
 		//Polymorphism using Arrays
@@ -34,4 +26,5 @@ public class Main {
 			printDetails(currentVehicle);
 		}
 
+}
 }
