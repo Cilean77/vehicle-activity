@@ -1,4 +1,4 @@
-public class Car extends Vehicle{
+public class Car extends Vehicle implements Serviceable{
 int numOfDoors;
 
 public Car (String brand, String model, int year, int numOfDoors){
@@ -22,6 +22,11 @@ public  void moveLeft(){
 public  void moveRight(){
     System.out.println("A car moves right");
 };
+
+@Override
+public void service(){
+    System.out.println("Check oil and brakes");
+}
 
 @Override
 public void displayInfo(){

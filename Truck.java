@@ -1,4 +1,4 @@
-public class Truck extends Vehicle{
+public class Truck extends Vehicle implements Serviceable{
 int numOfWheels;
 
 public Truck (String brand, String model, int year, int numOfWheels){
@@ -22,6 +22,11 @@ public  void moveLeft(){
 public  void moveRight(){
     System.out.println("A truck moves right");
 };
+
+@Override
+public void service(){
+    System.out.println("Inspect cargo brakes");
+}
 
 @Override
 public void displayInfo(){
