@@ -2,60 +2,49 @@
 
 public class Main {
 
+	public static void printDetails(Vehicle vehicle){
+			vehicle.displayInfo();
+			vehicle.moveForward();
+			vehicle.moveBackwards();
+			vehicle.moveLeft();
+			vehicle.moveRight();
+			System.out.println(" ");
+		}
+	
+		public static void performService(Serviceable item) {
+        item.service();
+    }
+
 	public static void main(String[] args) {
 		
-		Vehicle v1 = new Vehicle("Chevrolet", "Corvette", 1963);
-		Vehicle v2 = new Vehicle("Toyota", "RAV4", 2024);
-		Vehicle v3 = new Vehicle("Honda", "Civic", 2015);
-		
-		//object1
-		v1.displayInfo();
-		System.out.println("Brand: " + v1.getBrand());
-		System.out.println("Model: " + v1.getModel());
-		System.out.println("Year: " + v1.getYear());
-		System.out.println("Age: " + v1.calculateAge());
-		System.out.println("Vintage: " + v1.isVintage());
-		
-		//object2
-		v2.displayInfo();
-		System.out.println("Brand: " + v2.getBrand());
-		System.out.println("Model: " + v2.getModel());
-		System.out.println("Year: " + v2.getYear());
-		System.out.println("Age: " + v2.calculateAge());
-		System.out.println("Vintage: " + v2.isVintage());	
-		
-		//object3
-		v3.displayInfo();
-		System.out.println("Brand: " + v3.getBrand());
-		System.out.println("Model: " + v3.getModel());
-		System.out.println("Year: " + v3.getYear());
-		System.out.println("Age: " + v3.calculateAge());
-		System.out.println("Vintage: " + v3.isVintage());	
+		//objects of each class
+		Serviceable car1 = new Car("Chevrolet", "Corvette", 1963, 4);
+		Serviceable motor = new Motorcycle("Honda", " ADV160", 2026, "Basta modagan");
+		Serviceable truck1 = new Truck("Isuzu", "FRR90MS", 2026, 6);
+		Serviceable printer1 = new Printer();
 
-		//set (test)
-		System.out.println("setYear(2000): " + v1.setYear(2000));
-		System.out.println("Year: " + v1.getYear());
-		System.out.println("Age: " + v1.calculateAge());
-		System.out.println("Is vintage? " + v1.isVintage());
-		System.out.println();
+		//Polymorphism using Arrays
+		Vehicle[] vehicles = {
+			new Car("Chevrolet", "Corvette", 1963, 4),
+			new Motorcycle("Honda", " ADV160", 2026, "Basta modagan"),
+			new Truck("Isuzu", "FRR90MS", 2026, 6)
+		};
+		//loop for vehicles
+		for(Vehicle currentVehicle: vehicles){
+			printDetails(currentVehicle);
+		}
 
-		System.out.println("setYear(1885): " + v1.setYear(1885));
-		System.out.println("Year: " + v1.getYear());
-		System.out.println();
+		Serviceable[] service = {
+			car1,
+			motor,
+			truck1,
+			printer1
+		};
 
-		System.out.println("setYear(2027): " + v1.setYear(2027));
-		System.out.println("Year: " + v1.getYear());
-		System.out.println();
-
-		//test
-		Vehicle v4 = new Vehicle("Chevrolet", "Corvette", 1885); 
-		System.out.println("New vehicle with year 1885"); 
-		System.out.println("Initial year is " + v4.getYear()); 
-		System.out.println(); 
-
-	 	Vehicle v5 = new Vehicle("Toyota", "RAV4", 2027);
-		System.out.println("New vehicle with year 2027");
-		System.out.println("Initial year is " + v5.getYear());
-	}
-
+		System.out.println(" ");
+		//loop for serviceable
+		for(Serviceable currentService: service){
+			performService(currentService);
+		}
+}
 }
