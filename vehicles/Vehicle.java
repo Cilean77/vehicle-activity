@@ -1,6 +1,6 @@
+package vehicles;
 
-
-public class Vehicle {
+public abstract class Vehicle {
 	private String brand;
 	private String model;
 	private int year;
@@ -15,6 +15,12 @@ public class Vehicle {
 		}
 		
 	}
+
+	//Abstract Methods
+	public abstract void moveForward();
+	public abstract void moveBackwards();
+	public abstract void moveLeft();
+	public abstract void moveRight();
 
 	//Setters & getters
 	public String getBrand(){
