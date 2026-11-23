@@ -1,3 +1,8 @@
+
+package vehicles;
+
+import contracts.Serviceable;
+
 public class Car extends Vehicle implements Serviceable{
 int numOfDoors;
 
